@@ -6,10 +6,22 @@
   <style>
     /* CSS styling for the div */
     #greenDiv {
-      width: 100px;
+      width: 200px;
       height: 200px;
       background-color: green;
-      border: 7px solid grey; /* Adding a grey border */
+      border: 2px solid grey; /* Adding a grey border */
+      position: relative;
+    }
+
+    /* Horizontal line to divide the div into five equal intervals */
+    #greenDiv::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 20%;
+      width: 100%;
+      height: 2px;
+      background: grey;
     }
   </style>
 </head>
@@ -28,4 +40,3 @@
 
 </body>
 </html>
-
