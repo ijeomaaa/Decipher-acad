@@ -11,26 +11,32 @@
       background-color: green;
       border: 2px solid grey; /* Adding a grey border */
       position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
-    /* Horizontal line to divide the div into five equal intervals */
-    #greenDiv::before {
+    /* Horizontal lines to divide the div into five equal intervals */
+    #greenDiv::before,
+    #greenDiv::after,
+    #greenDiv .line {
       content: '';
-      position: absolute;
-      left: 0;
-      top: 20%;
       width: 100%;
       height: 2px;
       background: grey;
     }
-
-    
   </style>
 </head>
 <body>
 
 <!-- HTML content with a div element -->
-<div id="greenDiv"></div>
+<div id="greenDiv">
+  <div class="line"></div>
+  <div class="line"></div>
+  <div class="line"></div>
+  <div class="line"></div>
+  <div class="line"></div>
+</div>
 
 <!-- JavaScript to manipulate the div -->
 <script>
