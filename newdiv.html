@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* CSS styling for the container */
+    #container {
+      display: flex;
+    }
+
+    /* CSS styling for the two divs */
+    .side-by-side {
+      width: 100px;
+      height: 100px;
+      margin: 10px; /* Add some margin for spacing */
+      background-color: blue;
+      cursor: pointer; /* Add pointer cursor to indicate clickability */
+    }
+
+    /* Hide the second and third div initially */
+    #secondDiv,
+    #thirdDiv {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<!-- HTML content with a container and three side-by-side divs -->
+<div id="container">
+  <div class="side-by-side" onclick="toggleVisibility()"></div>
+  <div id="secondDiv" class="side-by-side"></div>
+  <div id="thirdDiv" class="side-by-side"></div>
+</div>
+
+<script>
+  var currentDiv = 1; // Variable to track the currently displayed div
+
+  function toggleVisibility() {
+    var secondDiv = document.getElementById('secondDiv');
+    var thirdDiv = document.getElementById('thirdDiv');
+
+    // Toggle visibility based on the current div
+    if (currentDiv === 1) {
+      secondDiv.style.display = 'block';
+      thirdDiv.style.display = 'none';
+      currentDiv = 2;
+    } else {
+      secondDiv.style.display = 'none';
+      thirdDiv.style.display = 'block';
+      currentDiv = 1;
+    }
+  }
+</script>
+
+</body>
+</html>
