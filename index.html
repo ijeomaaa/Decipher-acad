@@ -12,7 +12,7 @@
       border: 2px solid grey; /* Adding a grey border */
       position: relative;
       display: flex;
-      flex-direction: column; /* Set the flex direction to row */
+      flex-direction: column;
       justify-content: space-between;
       cursor: pointer; /* Adding a pointer cursor to indicate clickability */
     }
@@ -22,21 +22,18 @@
     #greenDiv::after,
     #greenDiv .line {
       content: '';
-      width: 2px; /* Adjusted the width to create vertical lines */
-      height: 100%;
+      width: 100%;
+      height: 2px;
       background: grey;
     }
 
     /* CSS styling for the additional div */
     #additionalDiv {
       width: 100px;
-      height: 600%;
+      height: 600px;
       background-color: green;
-      display: none;
-      left: 100%; /* Position to the right of the main div */
-      top: 0;
+      display: none; /* Initially hide the additional div */
     }
-
   </style>
 </head>
 <body>
@@ -51,10 +48,8 @@
 </div>
 
 <div id="additionalDiv">
-<p> I will love to play games</p>
-
+  <p> I| love principles</p>
 </div>
-
 
 <!-- JavaScript to handle the click event and show the additional div -->
 <script>
