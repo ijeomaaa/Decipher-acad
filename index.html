@@ -12,12 +12,12 @@
 
     /* CSS styling for the main div */
     #greenDiv {
+      position: relative;
       width: 200px;
       height: 200px;
       background-color: green;
-      border: 2px solid grey; /* Adding a grey border */
-      position: relative;
-      cursor: pointer; /* Adding a pointer cursor to indicate clickability */
+      border: 2px solid grey;
+      cursor: pointer;
     }
 
     /* Horizontal lines to divide the div into five equal intervals */
@@ -46,9 +46,12 @@
     /* CSS styling for the additional div */
     #additionalDiv {
       width: 100px;
-      height: 100%; /* Set height to 100% to match the main div */
-      background-color: green;
-      display: none; /* Initially hide the additional div */
+      height: 100%;
+      background-color: blue;
+      display: none;
+      position: absolute;
+      left: 100%; /* Position to the right of the main div */
+      top: 0;
     }
   </style>
 </head>
