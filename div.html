@@ -15,6 +15,12 @@
       height: 100px;
       margin: 10px; /* Add some margin for spacing */
       background-color: blue;
+      cursor: pointer; /* Add pointer cursor to indicate clickability */
+    }
+
+    /* Hide the second div initially */
+    #secondDiv {
+      display: none;
     }
   </style>
 </head>
@@ -22,9 +28,17 @@
 
 <!-- HTML content with a container and two side-by-side divs -->
 <div id="container">
-  <div class="side-by-side"></div>
-  <div class="side-by-side"></div>
+  <div class="side-by-side" onclick="toggleVisibility()"></div>
+  <div id="secondDiv" class="side-by-side"></div>
 </div>
+
+<script>
+  function toggleVisibility() {
+    var secondDiv = document.getElementById('secondDiv');
+    // Toggle the visibility of the second div
+    secondDiv.style.display = secondDiv.style.display === 'none' ? 'block' : 'none';
+  }
+</script>
 
 </body>
 </html>
