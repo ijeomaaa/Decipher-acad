@@ -12,6 +12,13 @@
             justify-content: space-between;
             background-image: url('gre2.jpg');
         }
+        .shoppingCartLogo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 24px;
+      color: white;
 
         #categories {
             width: 20%;
@@ -72,26 +79,28 @@
 
     <div id="categories">
         <div class="category">
-            <h3>LANDMARKS</h3>
+            <h3>AVAILABLE LANDMARKS</h3>
             <div class="product" style="background-image: url('gre1.jpg')" onclick="addToCart('Architecture', 999)">
-                <p>Architecture</p>
-                <p>$999</p>
+                
             </div>
+            <p>$999</p>
             <div class="product" style="background-image: url('gre7.jpg')" onclick="addToCart('IT Lab', 499)">
-                <p>IT Lab</p>
-                <p>$499</p>
+              
             </div>
+            
         </div>
         <div class="category">
             <h3>Library</h3>
             <div class="product" style="background-image: url('gre6.jpg')" onclick="addToCart('Library', 19.99)">
-                <p>Library</p>
-                <p>$19.99</p>
+               
+              
             </div>
-            <div class="product" style="background-image: url('clothing2.jpg')" onclick="addToCart('Conference', 39.99)">
-                <p>Conference</p>
-                <p>$39.99</p>
+            <p>$19.99</p>
+            <div class="product" style="background-image: url('gre3.webp')" onclick="addToCart('Conference', 39.99)">
+                
+               
             </div>
+            <p>$39.99</p>
         </div>
         
         </div>
@@ -103,7 +112,7 @@
 
     <div class="cart">
         <h2>Shopping Cart</h2>
-        <img id="cart-logo" src="cart-logo.png" alt="Shopping Cart Logo">
+        <i class="fas fa-shopping-cart shoppingCartLogo"></i>
         <ul id="cart-items"></ul>
         <p>Total: $<span id="total">0.00</span></p>
     </div>
