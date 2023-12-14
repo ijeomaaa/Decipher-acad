@@ -10,8 +10,7 @@
             padding: 0;
             display: flex;
             justify-content: space-between;
-            background-image: url('gre8.PNG');
-            
+            background-image: url('gre2.jpg');
         }
 
         #categories {
@@ -48,6 +47,15 @@
             background-color: #333;
             color: #fff;
             padding: 20px;
+            position: relative;
+        }
+
+        #cart-logo {
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
         }
 
         #cart-items {
@@ -61,23 +69,22 @@
     </style>
 </head>
 <body>
-    
 
     <div id="categories">
         <div class="category">
             <h3>Electronics</h3>
-            <div class="product" style="background-image: url('electronics1.jpg')" onclick="addToCart('Laptop', 999)">
+            <div class="product" style="background-image: url('gre1.jpg')" onclick="addToCart('Laptop', 999)">
                 <p>Laptop</p>
                 <p>$999</p>
             </div>
-            <div class="product" style="background-image: url('electronics2.jpg')" onclick="addToCart('Smartphone', 499)">
+            <div class="product" style="background-image: url('gre7.jpg')" onclick="addToCart('Smartphone', 499)">
                 <p>Smartphone</p>
                 <p>$499</p>
             </div>
         </div>
         <div class="category">
             <h3>Clothing</h3>
-            <div class="product" style="background-image: url('clothing1.jpg')" onclick="addToCart('T-Shirt', 19.99)">
+            <div class="product" style="background-image: url('gre6.jpg')" onclick="addToCart('T-Shirt', 19.99)">
                 <p>T-Shirt</p>
                 <p>$19.99</p>
             </div>
@@ -88,7 +95,7 @@
         </div>
         <div class="category">
             <h3>Books</h3>
-            <div class="product" style="background-image: url('Updated\image\gre3.webp')" onclick="addToCart('Novel', 9.99)">
+            <div class="product" style="background-image: url('books1.jpg')" onclick="addToCart('Novel', 9.99)">
                 <p>Novel</p>
                 <p>$9.99</p>
             </div>
@@ -105,6 +112,7 @@
 
     <div class="cart">
         <h2>Shopping Cart</h2>
+        <img id="cart-logo" src="cart-logo.png" alt="Shopping Cart Logo">
         <ul id="cart-items"></ul>
         <p>Total: $<span id="total">0.00</span></p>
     </div>
