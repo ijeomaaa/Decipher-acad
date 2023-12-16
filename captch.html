@@ -3,19 +3,80 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <title>Drag and Drop Captcha</title>
+  <title>Drag and Drop</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      display: flex;
+    }
+
+    .box {
+      width: 100px;
+      height: 100px;
+      margin: 10px;
+      border: 1px solid #000;
+      text-align: center;
+      line-height: 100px;
+      cursor: move;
+    }
+
+    .box.green {
+      background-color: lightgreen;
+    }
+
+    .box.red {
+      background-color: lightcoral;
+    }
+  </style>
 </head>
 <body>
 
-<div class="captcha-container">
-  <div id="captcha-item" class="draggable" draggable="true">Drag me</div>
-  <div id="drop-area" class="drop-area" ondrop="drop(event)" ondragover="allowDrop(event)">
-    Drop here to pass the captcha
-  </div>
-  <div id="captcha-result"></div>
+<div class="container">
+  <div id="boxA" class="box" draggable="true">A</div>
+  <div id="boxB" class="box">B</div>
+  <div id="boxC" class="box">C</div>
 </div>
 
-<script src="script.js"></script>
+<script>
+  const boxA = document.getElementById('boxA');
+  const boxB = document.getElementById('boxB');
+  const boxC = document.getElementById('boxC');
+
+  boxA.addEventListener('dragstart', (event) => {
+    event.dataTransfer.setData('text/plain', 'A');
+  });
+
+  boxB.addEventListener('dragover', (event) => {
+    event.preventDefault();
+  });
+
+  boxC.addEventListener('dragover', (event) => {
+    event.preventDefault();
+  });
+
+  boxB.addEventListener('drop', (event) => {
+    const data = event.dataTransfer.getData('text/plain');
+    if (data === 'A') {
+      boxB.classList.add('green');
+      boxC.classList.remove('red');
+    }
+  });
+
+  boxC.addEventListener('drop', (event) => {
+    const data = event.dataTransfer.getData('text/plain');
+    if (data === 'A') {
+      boxC.classList.add('red');
+      boxB.classList.remove('green');
+    }
+  });
+</script>
+
 </body>
 </html>
