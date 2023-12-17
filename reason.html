@@ -47,7 +47,7 @@
 
 <div class="box boxA" onclick="changeColor('boxA')">A</div>
 <div class="box boxB" onclick="showChildren(['boxC', 'boxD'])">B</div>
-<div class="box boxC" onclick="changeColor('boxC')">C</div>
+<div class="box boxC" onclick="changeColor('boxC')">C
   <div class="message" id="message">Double Edge</div>
 </div>
 <div class="box boxD" onclick="changeColor('boxD')">D</div>
@@ -92,12 +92,15 @@
 
   function showChildren(childrenIds) {
     childrenIds.forEach(childId => {
-      const child = document.getElementById(childId);
+      const child = document.querySelector(`.${childId}`);
       child.style.display = 'block';
     });
 
     // Hide div E (remove this line if div E doesn't exist)
-    document.getElementById('boxE').style.display = 'none';
+    const boxE = document.querySelector('.boxE');
+    if (boxE) {
+      boxE.style.display = 'none';
+    }
   }
 </script>
 
