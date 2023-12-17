@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Show Only Immediate Child</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .parent {
+      width: 100px;
+      height: 50px;
+      margin: 10px;
+      border: 1px solid #000;
+      text-align: center;
+      line-height: 50px;
+      cursor: pointer;
+    }
+
+    .child {
+      display: none;
+      width: 100px;
+      height: 50px;
+      margin: 10px;
+      border: 1px solid #000;
+      text-align: center;
+      line-height: 50px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="parent" onclick="toggleChild('A')">A
+  <div class="child" id="childA">Child A</div>
+</div>
+
+<div class="parent" onclick="toggleChild('B')">B
+  <div class="child" id="childB">Child B
+    <div class="child" id="childC">Child C
+      <div class="child" id="childD">Child D
+        <div class="child" id="childE">Child E</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function toggleChild(parentId) {
+    const childId = 'child' + parentId;
+    const childDiv = document.getElementById(childId);
+
+    // Hide all child divs
+    const allChildDivs = document.querySelectorAll('.child');
+    allChildDivs.forEach(div => {
+      div.style.display = 'none';
+    });
+
+    // Show only the immediate child div
+    childDiv.style.display = 'block';
+  }
+</script>
+
+</body>
+</html>
