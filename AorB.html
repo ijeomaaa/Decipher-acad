@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Changing Divs</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .box {
+      width: 100px;
+      height: 50px;
+      margin: 10px;
+      border: 1px solid #000;
+      text-align: center;
+      line-height: 50px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div class="box" id="boxA" onclick="changeColor('boxA')">A</div>
+<div class="box" id="boxB" onclick="changeColor('boxB')">B</div>
+
+<script>
+  function changeColor(boxId) {
+    const box = document.getElementById(boxId);
+
+    // Change the background color based on the box ID
+    if (boxId === 'boxA') {
+      box.style.backgroundColor = 'red';
+    } else if (boxId === 'boxB') {
+      box.style.backgroundColor = 'green';
+    }
+  }
+</script>
+
+</body>
+</html>
