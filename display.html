@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toggle Child Divs</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .parent {
+      width: 100px;
+      height: 50px;
+      margin: 10px;
+      border: 1px solid #000;
+      text-align: center;
+      line-height: 50px;
+      cursor: pointer;
+    }
+
+    .child {
+      display: none;
+      width: 100px;
+      height: 50px;
+      margin: 10px;
+      border: 1px solid #000;
+      text-align: center;
+      line-height: 50px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="parent" onclick="toggleChild('A')">A</div>
+<div class="child" id="childA">Child A</div>
+
+<div class="parent" onclick="toggleChild('B')">B</div>
+<div class="child" id="childB">Child B</div>
+
+<div class="parent" onclick="toggleChild('C')">C</div>
+<div class="child" id="childC">Child C</div>
+
+<div class="parent" onclick="toggleChild('D')">D</div>
+<div class="child" id="childD">Child D</div>
+
+<script>
+  function toggleChild(parentId) {
+    const childId = 'child' + parentId;
+    const childDiv = document.getElementById(childId);
+
+    // Toggle the display property of the child div
+    childDiv.style.display = (childDiv.style.display === 'none' || childDiv.style.display === '') ? 'block' : 'none';
+  }
+</script>
+
+</body>
+</html>
