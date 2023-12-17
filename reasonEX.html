@@ -34,12 +34,13 @@
       text-align: center;
       color: red;
       font-weight: bold;
+      display: none;
     }
 
-    .boxA { background-color: red; }
-    .boxB { background-color: green; }
-    .boxC { background-color: green; }
-    .boxD { background-color: blue; }
+    .boxA { background-color: transparent; }
+    .boxB { background-color: transparent; }
+    .boxC { background-color: transparent; }
+    .boxD { background-color: transparent; }
   </style>
 </head>
 <body>
@@ -85,7 +86,7 @@
   function resetAllBoxColors() {
     const allBoxes = document.querySelectorAll('.box');
     allBoxes.forEach(box => {
-      box.style.backgroundColor = '';
+      box.style.backgroundColor = 'transparent';
     });
   }
 </script>
