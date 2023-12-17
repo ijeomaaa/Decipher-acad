@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Changing Divs</title>
+  <style>
+    body {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .box {
+      width: 100px;
+      height: 50px;
+      margin: 10px;
+      border: 1px solid #000;
+      text-align: center;
+      line-height: 50px;
+      cursor: pointer;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<div class="box" id="boxA" onclick="showChild('boxE')">A</div>
+<div class="box" id="boxB" onclick="showChildren(['boxC', 'boxD'])">B</div>
+<div class="box hidden" id="boxC">C</div>
+<div class="box hidden" id="boxD">D</div>
+<div class="box hidden" id="boxE">E</div>
+
+<script>
+  function showChild(childId) {
+    const child = document.getElementById(childId);
+    
+    // Hide all boxes
+    hideAllBoxes();
+
+    // Show the clicked child
+    child.style.display = 'block';
+
+    // Change the background color based on the child ID (Optional)
+    if (childId === 'boxE') {
+      child.style.backgroundColor = 'red';
+    }
+  }
+
+  function showChildren(childrenIds) {
+    childrenIds.forEach(childId => {
+      const child = document.getElementById(childId);
+
+      // Show the clicked children
+      child.style.display = 'block';
+
+      // Change the background color based on the child ID (Optional)
+      if (childId === 'boxC') {
+        child.style.backgroundColor = 'green';
+      } else if (childId === 'boxD') {
+        child.style.backgroundColor = 'green';
+      }
+    });
+
+    // Hide div E
+    document.getElementById('boxE').style.display = 'none';
+  }
+
+  function hideAllBoxes() {
+    const allBoxes = document.querySelectorAll('.box');
+    allBoxes.forEach(box => {
+      box.style.display = 'none';
+    });
+  }
+</script>
+
+</body>
+</html>
