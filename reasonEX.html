@@ -6,8 +6,10 @@
   <title>Color Changing Divs</title>
   <style>
     body {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-rows: repeat(2, 1fr);
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
       justify-content: center;
       align-items: center;
       height: 100vh;
@@ -17,65 +19,73 @@
     .box {
       width: 100px;
       height: 50px;
-      margin: 10px;
       border: 1px solid #000;
       text-align: center;
       line-height: 50px;
       cursor: pointer;
+      position: relative;
     }
 
-    .hidden {
-      display: none;
+    .message {
+      position: absolute;
+      bottom: -20px;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      color: red;
+      font-weight: bold;
     }
+
+    .boxA { background-color: red; }
+    .boxB { background-color: green; }
+    .boxC { background-color: green; }
+    .boxD { background-color: blue; }
   </style>
 </head>
 <body>
 
-<div class="box" id="boxA" onclick="showChild('boxE')">A</div>
-<div class="box" id="boxB" onclick="showChildren(['boxC', 'boxD'])">B</div>
-<div class="box hidden" id="boxC">C</div>
-<div class="box hidden" id="boxD">D</div>
-<div class="box hidden" id="boxE">E</div>
+<div class="box boxA" onclick="changeColor('boxA')">A</div>
+<div class="box boxB" onclick="changeColor('boxB')">B</div>
+<div class="box boxC" onclick="changeColor('boxC')">C
+  <div class="message" id="message">Double Edge</div>
+</div>
+<div class="box boxD" onclick="changeColor('boxD')">D</div>
 
 <script>
-  function showChild(childId) {
-    const child = document.getElementById(childId);
-    
-    // Hide all boxes
-    hideAllBoxes();
+  function changeColor(boxId) {
+    const box = document.querySelector(`.${boxId}`);
+    const messageDiv = document.getElementById('message');
 
-    // Show the clicked child
-    child.style.display = 'block';
+    // Reset all box colors
+    resetAllBoxColors();
 
-    // Change the background color based on the child ID (Optional)
-    if (childId === 'boxE') {
-      child.style.backgroundColor = 'red';
+    // Change the background color based on the box ID
+    if (boxId === 'boxA') {
+      box.style.backgroundColor = 'red';
+      messageDiv.style.color = 'red';
+      messageDiv.textContent = '';
+    } else if (boxId === 'boxB') {
+      box.style.backgroundColor = 'green';
+      messageDiv.style.color = 'red';
+      messageDiv.textContent = '';
+    } else if (boxId === 'boxC') {
+      box.style.backgroundColor = 'green';
+      const boxB = document.querySelector('.boxB');
+      boxB.style.backgroundColor = 'green';
+      messageDiv.style.color = 'red';
+      messageDiv.textContent = 'Double Edge';
+    } else if (boxId === 'boxD') {
+      const boxB = document.querySelector('.boxB');
+      boxB.style.backgroundColor = 'red';
+      messageDiv.style.color = 'red';
+      messageDiv.textContent = '';
     }
   }
 
-  function showChildren(childrenIds) {
-    childrenIds.forEach(childId => {
-      const child = document.getElementById(childId);
-
-      // Show the clicked children
-      child.style.display = 'block';
-
-      // Change the background color based on the child ID (Optional)
-      if (childId === 'boxC') {
-        child.style.backgroundColor = 'green';
-      } else if (childId === 'boxD') {
-        child.style.backgroundColor = 'green';
-      }
-    });
-
-    // Hide div E
-    document.getElementById('boxE').style.display = 'none';
-  }
-
-  function hideAllBoxes() {
+  function resetAllBoxColors() {
     const allBoxes = document.querySelectorAll('.box');
     allBoxes.forEach(box => {
-      box.style.display = 'none';
+      box.style.backgroundColor = '';
     });
   }
 </script>
