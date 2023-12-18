@@ -44,13 +44,14 @@
   </style>
 </head>
 <body>
-
-<div class="box boxA" onclick="changeColor('boxA')">A</div>
-<div class="box boxB" onclick="showChildren(['boxC', 'boxD'])">B</div>
-<div class="box boxC" onclick="changeColor('boxC')">C
+  <h1> Which sentence uses the correct verb tense?</h1>
+<div class="box boxA" onclick="changeColor('boxA')">She eats lunch every day</div>
+<div class="box boxB" onclick="showChildren(['boxC', 'boxD'])"> She eats lunch every day</div>
+<h1> Choose the correct Explanation</h1>
+<div class="box boxC" onclick="changeColor('boxC')">The verb "eats" in sentence A is in the present simple tense
   <div class="message" id="message">Double Edge</div>
 </div>
-<div class="box boxD" onclick="changeColor('boxD')">D</div>
+<div class="box boxD" onclick="changeColor('boxD')">The verb "eats" in sentence A is in the past simple tense</div>
 
 <script>
   function changeColor(boxId) {
