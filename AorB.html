@@ -28,6 +28,8 @@
 
 <div class="box" id="boxA" onclick="changeColor('boxA')">A</div>
 <div class="box" id="boxB" onclick="changeColor('boxB')">B</div>
+<div class="box" id="boxC" onclick="changeColor('boxC')">C</div>
+<div class="box" id="boxD" onclick="changeColor('boxD')">D</div>
 
 <script>
   function changeColor(boxId) {
@@ -38,6 +40,10 @@
       box.style.backgroundColor = 'red';
     } else if (boxId === 'boxB') {
       box.style.backgroundColor = 'green';
+    } else if (boxId === 'boxC') {
+      box.style.backgroundColor = 'green';
+    }else if (boxId === 'boxD') {
+      box.style.backgroundColor = 'red';
     }
   }
 </script>
