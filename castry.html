@@ -1,4 +1,4 @@
-
+/*
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,7 +33,7 @@
       text-align: center;
       line-height: 50px;
     }
-      .parent2 {
+    .parent2 {
       width: 100px;
       height: 50px;
       margin: 10px;
@@ -62,30 +62,13 @@
 
 <div class="parent" onclick="toggleChild('B')">B
   <div class="child" id="childB">Child B
-    <div class="child" id="childC">Child C
-      <div class="child" id="childD">Child D
-        <div class="child" id="childE">Child E</div>
-      </div>
-    </div>
-  </div>
-</div>
-</br>
-<div class="parent2" onclick="toggleChild('5')">A
-  <div class="child2" id="child5">Child 5</div>
-</div>
-
-<div class="parent2" onclick="toggleChild('6')">B
-  <div class="child2" id="child6">Child 6
-    <div class="child2" id="child7">Child C
-      <div class="child2" id="child8">Child D
-        <div class="child2" id="childE">Child E</div>
       </div>
     </div>
   </div>
 </div>
 
 <script>
-  function toggleChild(parentId) {
+   function toggleChild(parentId) {
     const childId = 'child' + parentId;
     const childDiv = document.getElementById(childId);
 
@@ -93,26 +76,12 @@
     const allChildDivs = document.querySelectorAll('.child');
     allChildDivs.forEach(div => {
       div.style.display = 'none';
-
-    function toggleChild2(parent2Id) {
-    const child2Id = 'child2' + parent2Id;
-    const child2Div = document.getElementById(child2Id);
-
-    // Hide all child divs
-    const allChild2Divs = document.querySelectorAll('.child2');
-    allChild2Divs.forEach(div => {
-      div.style.display = 'none';
     });
+
     // Show only the immediate child div
     childDiv.style.display = 'block';
-
-    // Show only the immediate child div
-    child2Div.style.display = 'block';
   }
 </script>
 
 </body>
 </html>
-
-
-
