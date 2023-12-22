@@ -88,6 +88,11 @@
     const childId = 'child' + parentId;
     const childDiv = document.getElementById(childId);
 
+    // Hide all child divs
+    const allChildDivs = document.querySelectorAll('.child');
+    allChildDivs.forEach(div => {
+      div.style.display = 'none';
+
     function toggleChild2(parent2Id) {
     const child2Id = 'child2' + parent2Id;
     const child2Div = document.getElementById(child2Id);
@@ -97,6 +102,8 @@
     allChild2Divs.forEach(div => {
       div.style.display = 'none';
     });
+    // Show only the immediate child div
+    childDiv.style.display = 'block';
 
     // Show only the immediate child div
     child2Div.style.display = 'block';
