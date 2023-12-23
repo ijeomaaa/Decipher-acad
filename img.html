@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image on Top of a Div</title>
+  <style>
+    .container {
+      position: relative;
+      width: 300px;
+      height: 200px;
+      border: 1px solid #ccc;
+    }
+
+    .overlay-image {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      max-width: 100%;
+      max-height: 100%;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <img class="overlay-image" src="your-image.jpg" alt="Overlay Image">
+</div>
+
+</body>
+</html>
